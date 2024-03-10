@@ -1,0 +1,6 @@
+{
+  "files": {
+    "README.md": true,
+    "fixture/Article.md": false
+  }
+}
