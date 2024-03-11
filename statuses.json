@@ -1,6 +1,13 @@
 {
+  "interval": 2592000,
   "files": {
-    "README.md": true,
-    "fixture/Article.md": false
+    "README.md": {
+      "status": true,
+      "timestamp": 1710112495
+    },
+    "fixture/Article.md": {
+      "status": false,
+      "timestamp": 1707112495
+    }
   }
 }
