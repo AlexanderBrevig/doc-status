@@ -23,6 +23,8 @@ jobs:
       - id: create-issue
         run: |
           echo "Create issue for ${{ matrix.file }}"
+          gh label create doc-status --color E99695 -f
+          gh label create ${{ matrix.file }} -f
           gh issue create \
             --title "${{ matrix.file }}" \
             --label "doc-status,${{ matrix.file }}" \
