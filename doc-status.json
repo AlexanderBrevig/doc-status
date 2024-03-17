@@ -1,5 +1,8 @@
 {
   "interval": 2592000,
+  "badge": {
+    "title": "Current"
+  },
   "files": {
     "README.md": {
       "status": true,
