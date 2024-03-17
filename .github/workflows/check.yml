@@ -1,0 +1,40 @@
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 8 * * *'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.check.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: check
+        uses: ./.github/actions/check
+  issue:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    needs: [check]
+    strategy:
+      matrix: ${{fromJson(needs.check.outputs.matrix)}}
+    steps:
+      - id: create-issue
+        run: |
+          echo "Create issue for ${{ matrix.file }}"
+          gh issue create \
+            --title "${{ matrix.file }}" \
+            --label "doc-status,${{ matrix.file }}" \
+            --body "## Article out of date\n[${{ matrix.file }}](./${{ matrix.file }})"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+
+  push:
+    runs-on: ubuntu-latest
+    needs: [issue]
+    steps:
+      - id: push
+        run: | 
+          echo "Git commit all the things"

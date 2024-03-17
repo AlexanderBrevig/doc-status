@@ -1,0 +1,7 @@
+name: check
+description: 'Check'
+runs:
+  using: 'docker'
+  image: '../../../Dockerfile'
+  args:
+    - check

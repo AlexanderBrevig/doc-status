@@ -1,16 +1,20 @@
 {
-  "interval": 2592000,
   "badge": {
     "title": "Current"
   },
   "files": {
+    "fixture/Article2.md": {
+      "status": true,
+      "timestamp": 1707112495
+    },
     "README.md": {
       "status": true,
       "timestamp": 1710112495
     },
     "fixture/Article.md": {
-      "status": false,
+      "status": true,
       "timestamp": 1707112495
     }
-  }
+  },
+  "interval": 2592000
 }
