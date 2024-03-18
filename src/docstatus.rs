@@ -6,7 +6,8 @@ use std::{
     time::{SystemTime, UNIX_EPOCH},
 };
 
-use log::{debug, info};
+use anyhow::anyhow;
+use log::{debug, error, info};
 use serde::{Deserialize, Serialize};
 use walkdir::WalkDir;
 
@@ -43,18 +44,27 @@ pub struct DocStatusError {}
 impl DocStatus {
     //TODO: list untraced files
 
-    pub(crate) fn list(&self, all: &bool) -> anyhow::Result<()> {
-        info!("list {all}");
+    pub(crate) fn _list(&self, all: &bool) -> anyhow::Result<()> {
+        debug!("list {all}");
         Ok(())
     }
 
-    pub(crate) fn fix(&self, article: &str) -> anyhow::Result<()> {
-        info!("fix {}", article);
-        Ok(())
+    pub(crate) fn fix(&mut self, article: &str) -> anyhow::Result<()> {
+        debug!("fix {}", article);
+        let timestamp = SystemTime::now().duration_since(UNIX_EPOCH)?.as_secs();
+        if let Some(file_status) = self.files.get_mut(article) {
+            info!("Fix state for {}", article);
+            file_status.timestamp = timestamp;
+            file_status.status = true;
+            Ok(())
+        } else {
+            error!("Could not find {}", article);
+            Err(anyhow!("Article not found in doc-status"))
+        }
     }
 
-    pub(crate) fn ensure_badge(&self, article: &Option<String>) -> anyhow::Result<()> {
-        info!("ensure-badge {:?}", article);
+    pub(crate) fn _ensure_badge(&self, article: &Option<String>) -> anyhow::Result<()> {
+        debug!("ensure-badge {:?}", article);
         Ok(())
     }
 

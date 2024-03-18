@@ -31,18 +31,13 @@ fn main() -> anyhow::Result<()> {
             let matrix = serde_json::to_string(&matrix)?;
             println!("{matrix}");
         }
-        Some(Commands::List { all }) => {
-            let list = doc_status.list(all);
-            println!("{:?}", list);
-        }
         Some(Commands::Fix { article }) => {
-            let fix = doc_status.fix(article);
-            println!("{:?}", fix);
+            doc_status.fix(article)?;
         }
-        Some(Commands::EnsureBadge { article }) => {
-            let ensure = doc_status.ensure_badge(article);
-            println!("{:?}", ensure);
-        }
+        // Some(Commands::EnsureBadge { article }) => {
+        //     let ensure = doc_status.ensure_badge(article);
+        //     println!("{:?}", ensure);
+        // }
         None => {}
     }
     let file = File::create(config).unwrap();

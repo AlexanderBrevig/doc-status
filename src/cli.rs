@@ -17,21 +17,21 @@ pub(crate) struct Cli {
 pub(crate) enum Commands {
     /// run check, update status for all
     Check,
-    /// list articles out of date
-    List {
-        /// force listing of all articles
-        #[arg(short, long)]
-        all: bool,
-    },
+    // list articles out of date
+    // List {
+    //     /// force listing of all articles
+    //     #[arg(short, long)]
+    //     all: bool,
+    // },
     /// fix article, mark up to date
     Fix {
         #[arg(short, long)]
         article: String,
     },
-    /// ensure badge for articles
-    EnsureBadge {
-        /// ensure for single article
-        #[arg(short, long)]
-        article: Option<String>,
-    },
+    // ensure badge for articles
+    // EnsureBadge {
+    //     /// ensure for single article
+    //     #[arg(short, long)]
+    //     article: Option<String>,
+    // },
 }

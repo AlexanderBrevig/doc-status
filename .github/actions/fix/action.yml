@@ -1,0 +1,14 @@
+name: fix
+description: 'Fix'
+inputs:
+  article:
+    description: "Relative path to your article"
+    type: string
+    required: true
+runs:
+  using: 'docker'
+  image: '../../../Dockerfile'
+  args:
+    - fix
+    - --article
+    - ${{ inputs.article }}
