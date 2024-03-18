@@ -3,17 +3,17 @@
     "title": "Current"
   },
   "files": {
-    "README.md": {
-      "status": true,
-      "timestamp": 1710112495
-    },
     "fixture/Article.md": {
       "status": true,
       "timestamp": 1710721954
     },
     "fixture/Article2.md": {
-      "status": false,
-      "timestamp": 1707112495
+      "status": true,
+      "timestamp": 1710722671
+    },
+    "README.md": {
+      "status": true,
+      "timestamp": 1710112495
     }
   },
   "interval": 2592000
