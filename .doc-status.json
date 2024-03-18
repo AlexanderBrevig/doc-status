@@ -4,8 +4,8 @@
   },
   "files": {
     "fixture/Article.md": {
-      "status": true,
-      "timestamp": 1710721954
+      "status": false,
+      "timestamp": 1707121954
     },
     "fixture/Article2.md": {
       "status": true,
