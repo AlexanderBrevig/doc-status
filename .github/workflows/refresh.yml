@@ -9,5 +9,5 @@ jobs:
       - uses: actions/checkout@v4
       - id: refresh
         run: |
-          echo ${{ event.issue.title }}
+          echo ${{ github.event.issue.title }}
           # TODO: actually refresh the status of the article
