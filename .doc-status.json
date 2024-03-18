@@ -4,16 +4,16 @@
   },
   "files": {
     "fixture/Article.md": {
-      "status": false,
-      "timestamp": 1707121954
-    },
-    "fixture/Article2.md": {
       "status": true,
-      "timestamp": 1710722671
+      "timestamp": 1710755855
     },
     "README.md": {
       "status": true,
       "timestamp": 1710112495
+    },
+    "fixture/Article2.md": {
+      "status": true,
+      "timestamp": 1710722671
     }
   },
   "interval": 2592000
