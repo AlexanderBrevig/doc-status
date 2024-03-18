@@ -11,3 +11,9 @@ jobs:
         uses: ./.github/actions/fix
         with:
           article: ${{ github.event.issue.title }}
+      - id: push
+        run: | 
+          git config --global user.name 'Doc-Status'
+          git config --global user.email 'doc-status@users.noreply.github.com'
+          git commit -am "chore(doc-status): fix ${{ github.event.issue.title }}"
+          git push
